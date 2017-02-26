@@ -3,7 +3,7 @@
 from genshi.template import TemplateLoader
 from router import Router, NotFoundError
 
-def main(environ, tmpl):
+def home(environ, tmpl):
     stream = tmpl.generate(
         home={'class':'active'},
         politics={'class':None},
@@ -260,8 +260,8 @@ def application(environ, start_response):
         response, data = not_found()
     else:
         handler = {
-            '/':                    main,
-            '/news':                main,
+            '/':                    home,
+            '/news':                home,
             '/news/politics':       category,
             '/news/business':       category,
             '/news/sports':         category,
