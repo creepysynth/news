@@ -1,0 +1,23 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+    
+    server_name localhost;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass 127.0.0.1:3031;
+
+        limit_except GET {
+            deny all;
+        }
+    }
+
+    location /media/ {
+        alias /var/www/uwsgi/media/;
+    }
+
+    location /static/ {
+        alias /var/www/uwsgi/static/;
+    }
+}
