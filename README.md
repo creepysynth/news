@@ -8,22 +8,22 @@
 
 Пример файла routes.conf:
 
-   /
-   /news/
-   /news/[category]/
-   /news/[category]/[article]/
+    /
+    /news/
+    /news/[category]/
+    /news/[category]/[article]/
    
 Интерфейс роутера:
 
-   class Route(object):
-       def __init__(self, route_str)
-       def matches_uri(self, uri)    // return bool
-       @property
-       def template(self)
+    class Route(object):
+        def __init__(self, route_str)
+        def matches_uri(self, uri)    // return bool
+        @property
+        def template(self)
 
-   class Router(object):
-       def __init__(self, route_strings)
-       def route_for_uri(self, uri)
+    class Router(object):
+        def __init__(self, route_strings)
+        def route_for_uri(self, uri)
 
 **2. TemplateEngine**
 
